@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediAsistan</title>
+<style>
+  :root { --ink:#1a2b32; --muted:#5a6b72; --line:#dfe7ea; --accent:#0B6E72; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; padding:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--ink); background:#f7f9fa; line-height:1.7;
+  }
+  .wrap { max-width:660px; margin:0 auto; padding:56px 20px 64px; }
+  .brand { font-weight:700; color:var(--accent); font-size:15px; letter-spacing:.02em; }
+  h1 { font-size:32px; margin:12px 0 8px; }
+  .tag { color:var(--muted); font-size:17px; margin-bottom:36px; }
+  .card {
+    display:block; background:#fff; border:1px solid var(--line); border-radius:10px;
+    padding:18px 20px; margin-bottom:14px; text-decoration:none; color:var(--ink);
+  }
+  .card:hover { border-color:var(--accent); }
+  .card strong { display:block; font-size:17px; margin-bottom:2px; }
+  .card span { color:var(--muted); font-size:14px; }
+  .contact { margin-top:36px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:15px; }
+  a.mail { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">MediAsistan</div>
+  <h1>İlaç Hatırlatma Uygulaması</h1>
+  <p class="tag">İlaçlarınızı zamanında almanıza yardımcı olur. Tüm bilgileriniz yalnızca
+  telefonunuzda saklanır.</p>
+
+  <a class="card" href="gizlilik.html">
+    <strong>Gizlilik Politikası</strong>
+    <span>Verilerinizin nasıl işlendiği ve haklarınız</span>
+  </a>
+
+  <a class="card" href="sartlar.html">
+    <strong>Kullanım Şartları</strong>
+    <span>Uygulamanın kullanım koşulları ve sorumluluklar</span>
+  </a>
+
+  <div class="contact">
+    İletişim: <a class="mail" href="mailto:info@mediasistan.app">info@mediasistan.app</a>
+  </div>
+
+</div>
+</body>
+</html>
