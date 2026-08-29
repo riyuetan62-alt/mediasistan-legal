@@ -25,30 +25,99 @@
   .card span { color:var(--muted); font-size:14px; }
   .contact { margin-top:36px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:15px; }
   a.mail { color:var(--accent); }
+  .lang-switch {
+    position:fixed; top:16px; right:16px; display:flex; gap:4px;
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:4px; box-shadow:0 1px 3px rgba(0,0,0,.08); z-index:10;
+  }
+  .lang-btn {
+    border:none; background:transparent; color:var(--muted); font-size:13px;
+    font-weight:600; padding:4px 10px; border-radius:6px; cursor:pointer;
+  }
+  .lang-btn.active { background:var(--accent); color:#fff; }
 </style>
 </head>
 <body>
+
+<div class="lang-switch">
+  <button class="lang-btn" data-set-lang="tr">TR</button>
+  <button class="lang-btn" data-set-lang="en">EN</button>
+</div>
+
 <div class="wrap">
 
-  <div class="brand">MediAsistan</div>
-  <h1>İlaç Hatırlatma Uygulaması</h1>
-  <p class="tag">İlaçlarınızı zamanında almanıza yardımcı olur. Tüm bilgileriniz yalnızca
-  telefonunuzda saklanır.</p>
+  <div data-lang="tr">
+    <div class="brand">MediAsistan</div>
+    <h1>İlaç Hatırlatma Uygulaması</h1>
+    <p class="tag">İlaçlarınızı zamanında almanıza yardımcı olur. Tüm bilgileriniz yalnızca
+    telefonunuzda saklanır.</p>
 
-  <a class="card" href="gizlilik.html">
-    <strong>Gizlilik Politikası</strong>
-    <span>Verilerinizin nasıl işlendiği ve haklarınız</span>
-  </a>
+    <a class="card" href="gizlilik.html">
+      <strong>Gizlilik Politikası</strong>
+      <span>Verilerinizin nasıl işlendiği ve haklarınız</span>
+    </a>
 
-  <a class="card" href="sartlar.html">
-    <strong>Kullanım Şartları</strong>
-    <span>Uygulamanın kullanım koşulları ve sorumluluklar</span>
-  </a>
+    <a class="card" href="sartlar.html">
+      <strong>Kullanım Şartları</strong>
+      <span>Uygulamanın kullanım koşulları ve sorumluluklar</span>
+    </a>
 
-  <div class="contact">
-    İletişim: <a class="mail" href="mailto:info@mediasistan.app">info@mediasistan.app</a>
+    <div class="contact">
+      İletişim: <a class="mail" href="mailto:info@mediasistan.app">info@mediasistan.app</a>
+    </div>
+  </div>
+
+  <div data-lang="en" hidden>
+    <div class="brand">MediAsistan</div>
+    <h1>Medication Reminder App</h1>
+    <p class="tag">Helps you take your medications on time. All your information is stored
+    only on your phone.</p>
+
+    <a class="card" href="gizlilik.html">
+      <strong>Privacy Policy</strong>
+      <span>How your data is processed and your rights</span>
+    </a>
+
+    <a class="card" href="sartlar.html">
+      <strong>Terms of Use</strong>
+      <span>The app's terms of use and responsibilities</span>
+    </a>
+
+    <div class="contact">
+      Contact: <a class="mail" href="mailto:info@mediasistan.app">info@mediasistan.app</a>
+    </div>
   </div>
 
 </div>
+
+<script>
+(function(){
+  var LS_KEY = 'mediasistanLang';
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(function(el){
+      el.hidden = el.getAttribute('data-lang') !== lang;
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+    });
+  }
+  function detectLang(){
+    var saved = localStorage.getItem(LS_KEY);
+    if (saved === 'tr' || saved === 'en') return saved;
+    var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    return nav.indexOf('en') === 0 ? 'en' : 'tr';
+  }
+  applyLang(detectLang());
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var lang = btn.getAttribute('data-set-lang');
+      try { localStorage.setItem(LS_KEY, lang); } catch (e) {}
+      applyLang(lang);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

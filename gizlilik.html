@@ -25,10 +25,28 @@
   .contact { background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-top:32px; }
   footer { margin-top:40px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
   footer a { margin-right:16px; }
+  .lang-switch {
+    position:fixed; top:16px; right:16px; display:flex; gap:4px;
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:4px; box-shadow:0 1px 3px rgba(0,0,0,.08); z-index:10;
+  }
+  .lang-btn {
+    border:none; background:transparent; color:var(--muted); font-size:13px;
+    font-weight:600; padding:4px 10px; border-radius:6px; cursor:pointer;
+  }
+  .lang-btn.active { background:var(--accent); color:#fff; }
 </style>
 </head>
 <body>
+
+<div class="lang-switch">
+  <button class="lang-btn" data-set-lang="tr">TR</button>
+  <button class="lang-btn" data-set-lang="en">EN</button>
+</div>
+
 <div class="wrap">
+
+<div data-lang="tr">
 
 <header>
   <div class="brand">MediAsistan</div>
@@ -131,5 +149,141 @@ adresinden bize ulaşabilirsiniz. Başvurularınız en geç 30 gün içinde yan�
 </footer>
 
 </div>
+
+<div data-lang="en" hidden>
+
+<header>
+  <div class="brand">MediAsistan</div>
+  <h1>Privacy Policy</h1>
+  <div class="updated">Last Updated: [[YAYIN TARİHİ]]</div>
+</header>
+
+<div class="intro">
+  This Privacy Policy explains how your data is processed, stored, and what rights you
+  have in the MediAsistan app. It covers our obligations under Turkish Law No. 6698 on
+  the Protection of Personal Data (&ldquo;KVKK&rdquo;) and the EU General Data Protection
+  Regulation (&ldquo;GDPR&rdquo;).
+</div>
+
+<h2>1. Data We Process</h2>
+<p>MediAsistan stores all the information you enter only on your phone:</p>
+<ul>
+  <li>Medication information (name, dose, time of use, notes)</li>
+  <li>Medication intake records and missed doses</li>
+  <li>Appointment and planned outing information</li>
+  <li>Side effect records</li>
+  <li>Medicine cabinet and expiry date information</li>
+  <li>Voice notes (recordings you make with the microphone)</li>
+  <li>App preferences (language, notification settings, PIN code)</li>
+</ul>
+<p>This information is considered health data and is treated as a special category of
+personal data. For this reason, the app is designed so that your data never leaves your
+device in any way.</p>
+<p>No data is collected automatically. The app contains no analytics tools, crash
+reporting, or tracking software. No device information or usage statistics are
+collected.</p>
+
+<h2>2. Collection Method and Purpose</h2>
+<p>Data consists only of the information you enter into the app and is processed on your
+device solely to show you reminders. No profiling or automated decision-making is
+performed.</p>
+<p>Because your data is never transferred to us and is never processed by us, no
+separate data processing consent is required for the app to function. The information
+you enter remains under your control alone.</p>
+
+<h2>3. Data Retention</h2>
+<p>All your data is stored only on your device and is never transmitted to our servers
+in any way. Your data remains on your phone until you delete it or uninstall the app.
+Uninstalling the app deletes all data.</p>
+<p>If a backup feature such as Google Drive is enabled on your device, your app data may
+be included in those backups. The security, access, and deletion of such backups are the
+responsibility of the relevant backup service and of you.</p>
+
+<h2>4. Sharing with Third Parties</h2>
+<p>Your data is never shared with, sold to, or used for advertising by any third party.
+The app does not use any third-party service providers.</p>
+
+<h2>5. Permissions Used</h2>
+<ul>
+  <li><strong>Notification permission:</strong> to show medication reminders</li>
+  <li><strong>Microphone permission:</strong> so you can record voice notes. Recordings
+      stay on your phone and are never sent anywhere</li>
+  <li><strong>Full-screen notification and exact alarm permissions:</strong> so
+      reminders work on time and remain visible</li>
+</ul>
+<p>You can revoke these permissions at any time from your phone settings. Reminders may
+not work if you remove them.</p>
+
+<h2>6. Data Security Measures</h2>
+<p>Your data is protected by your device's own security systems. You may add a PIN code
+to the app for extra protection if you wish. Since data is never transmitted over the
+internet, there is no risk of interception over a network.</p>
+<p>Because your data exists only on your device, the security of your device (lock
+screen, loss, theft, unauthorized access, backup settings) is your responsibility.</p>
+
+<h2>7. Children's Privacy</h2>
+<p>MediAsistan is not directed at children under 13, and no data is knowingly collected
+from this age group. Users aged 13-18 must use the app with the permission of their
+legal guardian.</p>
+
+<h2>8. Your User Rights</h2>
+<p>Because your data is stored only on your device, you can view, correct, and delete it
+directly through the app. To permanently delete all your data, simply uninstall the app
+or use the &ldquo;Delete My Account&rdquo; option.</p>
+<p>Your other rights under KVKK and GDPR are reserved. However, since the data does not
+reside on our servers, some of these rights can, in practice, only be exercised through
+your device.</p>
+<p>For questions about the app's approach to data processing, you can reach us at the
+email address below. Your requests will be answered within 30 days at the latest.</p>
+
+<h2>9. Changes to This Policy</h2>
+<p>This policy may be updated. Significant changes will be announced within the app and
+the &ldquo;Last Updated&rdquo; date will change.</p>
+
+<h2>10. Contact</h2>
+<div class="contact">
+  MediAsistan<br>
+  Turkey<br>
+  Email: <a href="mailto:info@mediasistan.app">info@mediasistan.app</a>
+</div>
+
+<footer>
+  <a href="index.html">Home</a>
+  <a href="sartlar.html">Terms of Use</a>
+</footer>
+
+</div>
+
+</div>
+
+<script>
+(function(){
+  var LS_KEY = 'mediasistanLang';
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(function(el){
+      el.hidden = el.getAttribute('data-lang') !== lang;
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+    });
+  }
+  function detectLang(){
+    var saved = localStorage.getItem(LS_KEY);
+    if (saved === 'tr' || saved === 'en') return saved;
+    var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    return nav.indexOf('en') === 0 ? 'en' : 'tr';
+  }
+  applyLang(detectLang());
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var lang = btn.getAttribute('data-set-lang');
+      try { localStorage.setItem(LS_KEY, lang); } catch (e) {}
+      applyLang(lang);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

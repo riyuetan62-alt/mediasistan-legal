@@ -29,10 +29,28 @@
   .accept { margin-top:24px; color:var(--muted); font-size:14px; }
   footer { margin-top:40px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
   footer a { margin-right:16px; }
+  .lang-switch {
+    position:fixed; top:16px; right:16px; display:flex; gap:4px;
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:4px; box-shadow:0 1px 3px rgba(0,0,0,.08); z-index:10;
+  }
+  .lang-btn {
+    border:none; background:transparent; color:var(--muted); font-size:13px;
+    font-weight:600; padding:4px 10px; border-radius:6px; cursor:pointer;
+  }
+  .lang-btn.active { background:var(--accent); color:#fff; }
 </style>
 </head>
 <body>
+
+<div class="lang-switch">
+  <button class="lang-btn" data-set-lang="tr">TR</button>
+  <button class="lang-btn" data-set-lang="en">EN</button>
+</div>
+
 <div class="wrap">
+
+<div data-lang="tr">
 
 <header>
   <div class="brand">MediAsistan</div>
@@ -183,5 +201,192 @@ sayılırsınız.</p>
 </footer>
 
 </div>
+
+<div data-lang="en" hidden>
+
+<header>
+  <div class="brand">MediAsistan</div>
+  <h1>Terms of Use</h1>
+  <div class="updated">Last Updated: [[YAYIN TARİHİ]]</div>
+</header>
+
+<div class="warn">
+  <strong>Important Notice:</strong> MediAsistan is a medication reminder app. It does
+  not provide medical advice, diagnosis, or treatment and is not a substitute for
+  professional medical consultation. It is not a medical device or medical software.
+  Always consult a healthcare professional for any health issue.
+</div>
+
+<h2>1. Acceptance of Terms</h2>
+<p>By downloading, installing, or using the MediAsistan app, you represent that you have
+read, understood, and agree to comply with these Terms. If you do not agree to these
+Terms, you must not use the app.</p>
+
+<h2>2. Scope of Service</h2>
+<p>MediAsistan is a reminder app that helps you take your medications on time. It offers
+the following features:</p>
+<ul>
+  <li>Medication reminder notifications</li>
+  <li>Medication history tracking</li>
+  <li>Appointment and planned outing tracking</li>
+  <li>Side effect recording</li>
+  <li>Medicine cabinet and expiry date tracking</li>
+</ul>
+<p>The app is for informational and organizational purposes only. It does not provide
+medical advice on medication dosage, duration of use, or treatment plans.</p>
+
+<h2>3. User Eligibility</h2>
+<p>To use the app, you must be at least 18 years old or use it with the permission of
+your legal guardian. The app is not directed at children under 13. Users aged 13-18 must
+use it with the permission of their legal guardian.</p>
+
+<h2>4. User Obligations</h2>
+<ul>
+  <li>You are responsible for ensuring that all information you enter into the app is
+      accurate and up to date.</li>
+  <li>You must enter medication information in accordance with your doctor's
+      recommendations.</li>
+  <li>You must use reminders only as a supportive tool.</li>
+  <li>Final decisions about medication use must be made together with your healthcare
+      professional.</li>
+  <li>The security of your device, notification settings, and backups are your
+      responsibility.</li>
+</ul>
+
+<h2>5. Prohibited Uses</h2>
+<p>The following actions are prohibited:</p>
+<ul>
+  <li>Using the app for unlawful purposes</li>
+  <li>Attempting to bypass the app's security features</li>
+  <li>Reverse engineering or decompiling the app</li>
+  <li>Uploading malicious code or viruses</li>
+</ul>
+
+<h2>6. Medical Disclaimer</h2>
+<ul>
+  <li>The app must not be used for medical diagnosis, treatment, or disease
+      prevention.</li>
+  <li>Always consult your doctor for medication dosage or usage decisions.</li>
+  <li>In an emergency, call your local emergency number — do not rely on the app.</li>
+  <li>Do not rely solely on this app for life-critical medications.</li>
+</ul>
+
+<h2>7. Intellectual Property Rights</h2>
+<p>The design, software, name, logo, and visuals of the MediAsistan app are protected.
+They may not be copied, reproduced, modified, or distributed without permission. These
+Terms grant you only a limited license for personal, non-commercial use.</p>
+
+<h2>8. Data and Privacy</h2>
+<p>How your personal data is processed is explained in our
+<a href="gizlilik.html">Privacy Policy</a>. By using the app, you confirm that you have
+read and accepted the Privacy Policy.</p>
+
+<h2>9. Limitation of Liability</h2>
+<p>The app depends on your phone's notification and alarm system. Reminders may be
+delayed or may not arrive at all due to your phone being off, battery-saving settings,
+disabled notification permissions, operating system restrictions, or limitations imposed
+by the device manufacturer.</p>
+<p>To the extent permitted by law, we cannot be held liable for damages arising
+from:</p>
+<ul>
+  <li>Missed, delayed, or non-delivered reminders</li>
+  <li>Incorrect, incomplete, or outdated information entered into the app</li>
+  <li>Technical malfunctions, software errors, and service interruptions</li>
+  <li>Your data being accessed by others due to loss, theft, or unauthorized access to
+      your device</li>
+  <li>Issues caused by operating system updates, device manufacturer restrictions, or
+      third-party software</li>
+</ul>
+<p>This limitation does not apply where the law does not permit the exclusion of
+liability.</p>
+
+<h2>10. Disclaimer of Warranty</h2>
+<p>The app is provided &ldquo;as is&rdquo; and &ldquo;as available.&rdquo; No express or
+implied warranty is given that the app will operate uninterrupted or error-free, that
+results will always be accurate, or that all errors will be corrected.</p>
+
+<h2>11. Service Changes and Termination</h2>
+<p>The app may be updated from time to time, with features added or removed. You may
+uninstall the app from your phone at any time; doing so deletes all your data.</p>
+
+<h2>12. Changes to These Terms</h2>
+<p>These Terms may change. Significant changes will be announced within the app.
+Continuing to use the app after changes are published means you accept the new
+Terms.</p>
+
+<h2>13. Force Majeure</h2>
+<p>We cannot be held liable for delays or disruptions caused by events beyond our
+reasonable control (natural disasters, war, government actions, internet or power
+outages, cyberattacks, etc.).</p>
+
+<h2>14. Governing Law and Jurisdiction</h2>
+<p>These Terms are governed by the laws of the Republic of Turkey. The courts and
+enforcement offices of Turkey have jurisdiction over disputes arising from these Terms.
+Your rights under consumer protection law are reserved. Users outside Turkey are
+responsible for complying with local laws.</p>
+
+<h2>15. Miscellaneous Provisions</h2>
+<ul>
+  <li>These Terms constitute the entire agreement between the parties regarding use of
+      the app.</li>
+  <li>Failure to enforce any provision does not constitute a waiver of that
+      provision.</li>
+  <li>If any provision is found invalid, the validity of the remaining provisions is not
+      affected.</li>
+  <li>You may not transfer your rights under these Terms to another party.</li>
+</ul>
+
+<h2>16. Language</h2>
+<p>In the event of a conflict between the Turkish version of these Terms and any other
+language, the Turkish version prevails.</p>
+
+<h2>17. Contact</h2>
+<div class="contact">
+  MediAsistan<br>
+  Turkey<br>
+  Email: <a href="mailto:info@mediasistan.app">info@mediasistan.app</a>
+</div>
+
+<p class="accept">By continuing to use the app, you are considered to have accepted
+these Terms.</p>
+
+<footer>
+  <a href="index.html">Home</a>
+  <a href="gizlilik.html">Privacy Policy</a>
+</footer>
+
+</div>
+
+</div>
+
+<script>
+(function(){
+  var LS_KEY = 'mediasistanLang';
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(function(el){
+      el.hidden = el.getAttribute('data-lang') !== lang;
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+    });
+  }
+  function detectLang(){
+    var saved = localStorage.getItem(LS_KEY);
+    if (saved === 'tr' || saved === 'en') return saved;
+    var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    return nav.indexOf('en') === 0 ? 'en' : 'tr';
+  }
+  applyLang(detectLang());
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var lang = btn.getAttribute('data-set-lang');
+      try { localStorage.setItem(LS_KEY, lang); } catch (e) {}
+      applyLang(lang);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
