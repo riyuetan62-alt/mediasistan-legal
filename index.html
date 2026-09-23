@@ -103,10 +103,18 @@
     });
   }
   function detectLang(){
+    try {
+      var urlLang = new URLSearchParams(window.location.search).get('lang');
+      if (urlLang === 'tr' || urlLang === 'en') {
+        try { localStorage.setItem(LS_KEY, urlLang); } catch (e) {}
+        return urlLang;
+      }
+    } catch (e) {}
     var saved = localStorage.getItem(LS_KEY);
     if (saved === 'tr' || saved === 'en') return saved;
-    var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    return nav.indexOf('en') === 0 ? 'en' : 'tr';
+    var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || navigator.userLanguage || ''];
+    var primary = (langs[0] || '').toLowerCase();
+    return primary.indexOf('tr') === 0 ? 'tr' : 'en';
   }
   applyLang(detectLang());
   document.querySelectorAll('.lang-btn').forEach(function(btn){
